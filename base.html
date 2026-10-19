@@ -1,0 +1,764 @@
+<title>비씨월드제약 홈</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="비씨월드제약 국문 홈페이지 — 홈">
+<!--PRETENDARD--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"><!--/PRETENDARD-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&display=swap">
+<style>
+/* 레이아웃: 1440 기준 · 좌우 120 · 콘텐츠 1200 · 12컬럼 거터 24. 1440 이하는 여백·열 수만 줄인다 (모바일 전용 패턴 없음)
+   토큰: Figma 「BC / Color」 변수 그대로. 브랜드 단일 테마(라이트) */
+:root{
+  --white:#FFFFFF; --ink:#000E30; --navy:#002479; --navy80:#335094;
+  --light-navy:#E6E9F2; --line:#CCD3E4; --dim:rgba(0,0,0,.6);
+  --ph-dark:linear-gradient(135deg,#1A3A86 0%,#000E30 100%);
+  --ph-light:linear-gradient(160deg,#EEF0F5 0%,#D9DEEA 100%);
+  --font:"Pretendard Variable",Pretendard,"Noto Sans KR",-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --gut:clamp(16px,8.333vw,120px);
+  --shadow:0 6px 24px rgba(0,0,0,.1);
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+[hidden]{display:none!important}
+.pg-enter{animation:pgIn .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes pgIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+body{margin:0;background:var(--white);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.6;letter-spacing:-.005em;word-break:keep-all;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+p,h1,h2,h3{margin:0}
+h1,h2,h3{text-wrap:balance}
+:focus-visible{outline:2px solid var(--navy80);outline-offset:2px;border-radius:4px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+
+/* 타이포 5단계 (가이드 VERSION22·27) */
+.t-headline{font-size:40px;font-weight:700;line-height:1.3;letter-spacing:-.02em}
+.t-title{font-size:24px;font-weight:600;line-height:1.35;letter-spacing:-.01em}
+.t-sub{font-size:18px;font-weight:600;line-height:1.4;letter-spacing:-.005em}
+.t-body{font-size:16px;font-weight:400;line-height:1.6;letter-spacing:-.005em}
+.t-label{font-size:13px;font-weight:400;line-height:1.55;letter-spacing:0}
+.t-label-strong{font-size:13px;font-weight:600;line-height:1.5}
+.t-body-strong{font-size:16px;font-weight:600;line-height:1.5;letter-spacing:-.005em}
+.eyebrow{font-size:13px;font-weight:600;line-height:1.5;letter-spacing:.06em;color:var(--navy80);text-transform:uppercase}
+.c-navy80{color:var(--navy80)} .c-line{color:var(--line)} .c-white{color:var(--white)}
+
+/* 공통 래퍼 */
+.wrap{width:100%;max-width:calc(1200px + 2*var(--gut));margin-inline:auto;padding-left:max(var(--gut),env(safe-area-inset-left,0px));padding-right:max(var(--gut),env(safe-area-inset-right,0px))}
+main{display:flex;flex-direction:column;gap:120px;padding-bottom:0}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
+.section-head .left{display:flex;flex-direction:column;gap:12px}
+.section-head .right{width:486px;max-width:100%;display:flex;flex-direction:column;gap:24px;align-items:flex-start}
+.section-head .right.end{align-items:flex-end}
+.section-head + *{margin-top:48px}
+
+/* 이미지 자리: 사진 파일이 없으면 톤 배경이 보임 */
+.media{position:relative;overflow:hidden;background:var(--ph-dark)}
+.media.light{background:var(--ph-light)}
+.media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;max-width:none}
+img.gone{display:none!important}
+
+/* 텍스트 링크 */
+.tlink{display:inline-flex;align-items:center;gap:8px;padding-bottom:2px;border-bottom:1px solid var(--navy);color:var(--navy);font-size:13px;font-weight:600;line-height:1.5;transition:color .18s,border-color .18s}
+.tlink .ar{font-size:16px;transition:transform .18s}
+.tlink:hover{color:var(--ink);border-color:var(--ink)}
+.tlink:hover .ar{transform:translateX(4px)}
+
+/* 태그 */
+.tag{display:inline-flex;align-items:center;height:24px;padding:2px 8px;border-radius:4px;background:var(--light-navy);color:var(--navy);font-size:13px;line-height:1.55;white-space:nowrap}
+.tag.req{background:var(--white);border:1px dashed var(--navy80);color:var(--navy80)}
+
+/* 버튼 */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:4px;font-weight:600;line-height:1.5;white-space:nowrap;transition:background .18s,color .18s,border-color .18s}
+.btn .ar{transition:transform .18s}
+.btn:hover .ar{transform:translateX(4px)}
+.btn-menu{height:44px;padding:0 24px;font-size:16px;letter-spacing:-.005em}
+.btn-primary{background:var(--navy);color:var(--white)}
+.btn-primary:hover{background:var(--ink)}
+.btn-outline{background:var(--white);border:1px solid var(--line);color:var(--ink)}
+.btn-outline:hover{background:var(--light-navy);border-color:var(--navy);color:var(--navy)}
+.btn-l{height:52px;padding:0 24px;font-size:13px}
+.btn-m{height:44px;padding:0 20px;font-size:13px}
+.btn .ar{font-size:16px}
+.btn-on-dark{border:1px solid var(--white);color:var(--white)}
+.btn-on-dark:hover{background:var(--white);color:var(--ink)}
+.btn-on-dark-solid{background:var(--white);border:1px solid var(--white);color:var(--ink)}
+.btn-on-dark-solid:hover{background:var(--light-navy);border-color:var(--light-navy)}
+
+/* ───────── GNB ───────── */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--white)}
+.gnb-wrap{position:fixed;top:calc(28px + env(safe-area-inset-top,0px));left:max(48px,env(safe-area-inset-left,0px));right:max(48px,env(safe-area-inset-right,0px));z-index:50}
+.gnb{height:84px;background:var(--white);border-radius:8px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;padding:0 32px 0 40px;gap:16px}
+.logo{display:flex;align-items:center;flex-shrink:0;height:24px;width:138px;position:relative}
+.logo img{width:138px;height:24px;object-fit:contain}
+.logo .wordmark{display:none;font-weight:700;font-size:17px;color:var(--navy);letter-spacing:-.02em;white-space:nowrap}
+.logo.noimg img{display:none} .logo.noimg .wordmark{display:block}
+.nav{display:flex;align-items:center;gap:8px}
+.nav-item{height:44px;padding:0 20px;border-radius:4px;font-size:16px;font-weight:700;line-height:1.5;letter-spacing:-.005em;white-space:nowrap;transition:background .18s,color .18s}
+.nav-item:hover,.nav-item.current,.nav-item[aria-expanded="true"]{background:var(--light-navy);color:var(--navy)}
+.util{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.lang{display:flex;padding:2px}
+.lang a{height:32px;padding:0 12px;display:flex;align-items:center;font-size:13px;font-weight:600;color:var(--line);transition:color .18s}
+.lang a[aria-current]{color:var(--ink)}
+.lang a:hover{color:var(--navy)}
+.util-link{height:36px;padding:0 12px;border-radius:4px;display:flex;align-items:center;font-size:13px;font-weight:600;transition:background .18s,color .18s}
+.util-link:hover,.util-link.current,.util-link[aria-expanded="true"]{background:var(--light-navy);color:var(--navy)}
+
+/* 메가메뉴 */
+.mega-dim{position:fixed;inset:0;background:var(--dim);z-index:40;opacity:0;pointer-events:none;transition:opacity .18s}
+.mega-dim.on{opacity:1;pointer-events:auto}
+.mega{position:absolute;left:0;right:0;top:100px;background:var(--white);border-radius:8px;box-shadow:var(--shadow);padding:40px 72px 48px;display:grid;grid-template-columns:282px 486px 384px;gap:24px;justify-content:space-between;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .18s,transform .18s,visibility .18s}
+.mega.on{opacity:1;visibility:visible;transform:none}
+.mega .m-title{display:flex;flex-direction:column;gap:12px}
+.mega .m-title p:first-child{font-size:13px;font-weight:600}
+@media (min-width:1281px){.mega .m-title .t-title{white-space:nowrap}}
+.mega .m-links{display:grid;grid-template-columns:1fr 1fr;column-gap:24px;align-content:start}
+.mega .m-links a{height:52px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font-weight:600;line-height:1.5;transition:color .18s,border-color .18s}
+.mega .m-links a span:last-child{font-weight:400;transition:transform .18s}
+.mega .m-links a:hover{color:var(--navy);border-color:var(--navy)}
+.mega .m-links a:hover span:last-child{transform:translateX(4px)}
+.mega .m-hl{background:var(--light-navy);border-radius:8px;padding:24px;display:flex;flex-direction:column;gap:12px;align-items:flex-start;align-self:start}
+
+.top-space{height:160px}
+
+/* ───────── HERO ───────── */
+.hero{display:flex;flex-direction:column;gap:24px;padding-top:40px}
+.hero-grid{display:grid;grid-template-columns:792fr 384fr;gap:24px}
+.main-visual{border-radius:8px;height:600px;overflow:hidden;position:relative;background:var(--ph-dark)}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;opacity:0;transition:opacity .4s;pointer-events:none}
+.slide.on{opacity:1;pointer-events:auto}
+/* 사진은 캡션 띠 위 영역에만 맞춰 넣음 (띠 뒤로 깔리지 않게) */
+.slide .media{position:relative;flex:1 1 auto;min-height:0}
+.slide .media img{object-position:center 40%}
+.caption-band{position:absolute;left:0;right:0;bottom:0;background:var(--ink);padding:40px 40px 32px;display:flex;flex-direction:column;gap:16px;min-height:252px}
+.slide .caption-band{position:relative;flex:none;min-height:0;padding:28px 40px 68px}
+.caption-band .tags{display:flex;gap:8px;flex-wrap:wrap}
+.caption-band h2{color:var(--white)}
+.slide-control{display:flex;justify-content:space-between;align-items:center;margin-top:auto}
+.dots{display:flex;gap:6px;align-items:center}
+.dots button{width:6px;height:4px;border-radius:2px;background:var(--navy80);transition:width .3s,background .3s}
+.dots button.on{width:24px;background:var(--white)}
+.sc-right{display:flex;align-items:center;gap:12px;color:var(--white);font-size:13px;font-weight:600;font-variant-numeric:tabular-nums}
+.sc-btns{display:flex;gap:4px}
+.sc-btns button{width:20px;height:20px;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:13px;font-weight:600;border-radius:2px}
+.sc-btns button:hover{background:rgba(255,255,255,.16)}
+.pause-ic{display:flex;gap:3px}.pause-ic i{width:3px;height:10px;background:var(--white);border-radius:1px}
+.play-ic{width:0;height:0;border-left:8px solid var(--white);border-top:5px solid transparent;border-bottom:5px solid transparent}
+
+.side{display:flex;flex-direction:column;gap:24px}
+.side-card{position:relative;height:288px;border-radius:8px;overflow:hidden;display:block}
+.side-card .media{position:absolute;inset:0}
+.side-card .cap{position:absolute;left:0;right:0;bottom:0;background:var(--ink);padding:24px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;transition:background .18s}
+.side-card:hover .cap{background:#1A3A86}
+.side-card .cap .ar{color:var(--white);font-weight:600;transition:transform .18s}
+.side-card:hover .cap .ar{transform:translate(2px,-2px)}
+.careers-card{position:relative;height:288px;border-radius:8px;overflow:hidden;padding:24px;display:flex;flex-direction:column;justify-content:space-between;background:var(--navy);color:var(--white)}
+.careers-card .media{position:absolute;inset:0;z-index:0;transition:opacity .25s}
+.careers-card > *:not(.media){position:relative;z-index:2}
+.careers-card .row{display:flex;justify-content:space-between;align-items:center}
+.careers-card .big{display:flex;align-items:baseline;gap:4px}
+.careers-card::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(299deg,#002479 0%,#0042DF 100%);opacity:0;transition:opacity .2s}
+.careers-card:hover::before,.careers-card:focus-visible::before{opacity:1}
+.careers-card:hover .media,.careers-card:focus-visible .media{opacity:0}
+.careers-card .go{align-self:flex-end;display:grid;justify-items:end}
+.careers-card .go > span{grid-area:1/1;transition:opacity .2s}
+.careers-card .go .d{color:var(--line);font-size:13px;font-weight:600;line-height:20px}
+.careers-card .go .h{color:var(--white);font-size:16px;font-weight:700;line-height:24px;opacity:0;display:flex;gap:12px}
+.careers-card:hover .go .d,.careers-card:focus-visible .go .d{opacity:0}
+.careers-card:hover .go .h,.careers-card:focus-visible .go .h{opacity:1}
+
+.notice{height:56px;border:1px solid var(--line);border-radius:8px;padding:0 24px;display:flex;align-items:center;gap:24px;transition:border-color .18s,background .18s}
+.notice:hover{border-color:var(--navy);background:var(--light-navy)}
+.notice .bar{width:1px;height:16px;background:var(--line);flex-shrink:0}
+.notice .txt{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.notice .date{color:var(--navy80);font-size:13px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.notice .ctl{font-size:13px;font-weight:600;white-space:pre}
+
+/* ───────── ABOUT stats ───────── */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.stat{background:var(--light-navy);border-radius:8px;padding:24px 24px 28px;display:flex;flex-direction:column;gap:24px}
+.stat .v{display:flex;align-items:baseline;gap:4px;font-variant-numeric:tabular-nums}
+.stat .g{display:flex;flex-direction:column;gap:9px}
+
+/* ───────── OUR WAY ───────── */
+.ourway{position:relative;height:810px;overflow:hidden;color:var(--white);display:flex;align-items:center}
+.ourway > .media{position:absolute;inset:0}
+.ourway > .media::after,.careers > .media::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.45)}
+.careers > .media::after{background:rgba(0,0,0,.2)}
+.ourway .wrap{position:relative;display:flex;flex-direction:column;align-items:center;gap:48px}
+.ourway .head{display:flex;flex-direction:column;gap:12px;align-items:center;text-align:center}
+.ourway .head .eyebrow{color:var(--white)}
+.values{width:100%;display:grid;grid-template-columns:repeat(5,1fr);gap:24px}
+.value{border-top:2px solid var(--white);padding-top:24px;display:flex;flex-direction:column;gap:9px}
+.ourway .btn{margin-top:24px}
+
+/* ───────── INTERVIEW ───────── */
+.interview{display:grid;grid-template-columns:486px 690px;gap:24px;align-items:center;justify-content:space-between}
+.iv-text{display:flex;flex-direction:column;gap:40px;align-items:flex-start}
+.iv-text .head{display:flex;flex-direction:column;gap:12px}
+.iv-quote{display:flex;flex-direction:column;gap:16px;min-height:120px}
+.iv-meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.iv-nav{display:flex;align-items:center;gap:24px;font-size:13px;font-weight:600;font-variant-numeric:tabular-nums;white-space:pre}
+.arrows{display:flex;border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.arrows button{width:44px;height:44px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:600;transition:background .18s,color .18s}
+.arrows button + button{border-left:1px solid var(--line)}
+.arrows button:hover{background:var(--light-navy);color:var(--navy)}
+.deck{position:relative;height:600px;width:100%}
+.card{position:absolute;top:0;width:70.43%;height:100%;border-radius:8px;overflow:hidden;transition:left .45s cubic-bezier(.2,.7,.2,1),transform .45s;cursor:pointer}
+.card .media{position:absolute;inset:0}
+.card .dimc{position:absolute;inset:0;background:rgba(0,0,0,.5);transition:opacity .45s}
+.card .namebox{position:absolute;left:24px;right:24px;bottom:16px;background:var(--ink);border-radius:8px;padding:16px 24px;display:flex;flex-direction:column;gap:4px;opacity:0;transform:translateY(8px);transition:opacity .3s .15s,transform .3s .15s}
+.card[data-pos="0"]{left:12.17%;z-index:3}
+.card[data-pos="0"] .dimc{opacity:0}
+.card[data-pos="0"] .namebox{opacity:1;transform:none}
+.card[data-pos="1"]{left:20.87%;z-index:2}
+.card[data-pos="2"]{left:29.57%;z-index:1}
+
+/* ───────── TECHNOLOGY ───────── */
+.tech-cards{display:flex;gap:24px}
+.tech-card{position:relative;flex:1 1 0;min-width:0;height:420px;border-radius:8px;overflow:hidden;text-align:left;transition:flex-grow .5s cubic-bezier(.2,.7,.2,1),background .3s;background:var(--light-navy)}
+.tech-card .media{position:absolute;inset:0;transition:opacity .35s,transform .5s}
+.tech-card .lb{transition:opacity .25s}
+/* 호버(활성) = Figma Tech card 타입=활성: Navy 카드 + 태그 · 이름 · 한 줄 · 설명 */
+.tech-card .hv{position:absolute;inset:0;padding:32px;display:flex;flex-direction:column;justify-content:flex-end;gap:16px;opacity:0;transform:translateY(12px);transition:opacity .3s,transform .4s cubic-bezier(.2,.7,.2,1);pointer-events:none}
+.tech-card .hv .d{max-width:320px;min-width:260px}
+.tech-card.on{flex-grow:1.55;background:var(--navy)}
+.tech-card.on .media{opacity:0;transform:scale(1.04)}
+.tech-card.on .lb{opacity:0}
+.tech-card.on .hv{opacity:1;transform:none;transition-delay:.12s}
+.tech-card .lb{position:absolute;left:0;right:0;bottom:0;padding:0 24px 24px;display:flex;flex-direction:column;gap:4px}
+.progress{position:relative;height:2px;background:var(--line);margin-top:48px}
+.progress i{position:absolute;top:0;left:0;height:2px;width:25%;background:var(--navy);transition:transform .45s cubic-bezier(.2,.7,.2,1),width .45s,opacity .3s}
+
+/* ───────── WHAT WE MAKE ───────── */
+.mk-list{border-top:1px solid var(--line)}
+.mk-row{display:grid;grid-template-columns:282px minmax(0,1fr) 165px 15px;gap:24px;align-items:center;padding:28px 0;border-bottom:1px solid var(--line);transition:border-color .18s}
+.mk-row .k{font-size:13px;line-height:1.55;color:var(--navy80)}
+.mk-row .tt{display:flex;flex-direction:column;gap:8px;min-width:0}
+.mk-row .n{font-size:24px;font-weight:600;line-height:1.35;letter-spacing:-.01em;transition:color .18s}
+.mk-row .t-body{color:var(--navy80)}
+.mk-row .l{font-size:13px;font-weight:600;line-height:1.5;text-align:right;transition:color .18s}
+.mk-row .ar{font-size:16px;font-weight:600;transition:color .18s,transform .18s}
+.mk-row:hover{border-bottom-color:var(--navy)}
+.mk-row:hover .n,.mk-row:hover .l,.mk-row:hover .ar{color:var(--navy)}
+.mk-row:hover .ar{transform:translateX(2px)}
+
+/* ───────── PARTNERSHIP ───────── */
+.pt-group{display:flex;flex-direction:column;gap:24px}
+.pt-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.pt-card{background:var(--white);border:1px solid var(--line);border-radius:8px;padding:24px 24px 32px;display:flex;flex-direction:column;gap:16px;transition:background .18s,border-color .18s}
+.pt-card:hover{background:var(--light-navy);border-color:var(--navy)}
+.pt-card .g{display:flex;flex-direction:column;gap:8px}
+.logos{display:grid;grid-template-columns:repeat(6,1fr);gap:24px}
+.logo-tile{height:96px;border:1px solid var(--line);border-radius:8px;background:var(--white);display:flex;align-items:center;justify-content:center;padding:24px 28px;position:relative}
+.logo-tile img{max-width:100%;max-height:100%;object-fit:contain}
+.logo-tile .ph{font-size:13px;color:var(--line)}
+.logo-tile img:not(.gone) + .ph{display:none}
+
+/* ───────── CAREERS banner ───────── */
+.careers{position:relative;height:600px;overflow:hidden;display:flex;align-items:center;color:var(--white);text-align:center}
+.careers > .media{position:absolute;inset:0}
+.careers .wrap{position:relative;display:flex;flex-direction:column;align-items:center;gap:24px}
+.careers .btns{display:flex;gap:8px;padding-top:16px;flex-wrap:wrap;justify-content:center}
+
+/* ───────── FOOTER ───────── */
+footer{background:var(--ink);color:var(--line)}
+footer .wrap{padding-block:64px;display:flex;flex-direction:column;gap:48px}
+.f-top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.f-logo{background:var(--white);border-radius:4px;padding:8px 12px;display:flex}
+.f-top .r{display:flex;align-items:center;gap:16px}
+.family{height:36px;padding:0 16px;border:1px solid var(--navy80);border-radius:4px;color:var(--white);font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px;transition:background .18s}
+.family:hover{background:var(--navy80)}
+.sitemap{display:grid;grid-template-columns:repeat(8,1fr);gap:24px}
+.sitemap .col{display:flex;flex-direction:column;gap:16px;min-width:0}
+.sitemap .col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.flink{font-size:13px;line-height:1.55;color:var(--line);border-bottom:1px solid transparent;transition:color .18s,border-color .18s}
+.flink.head{font-size:16px;font-weight:600;line-height:1.5;color:var(--white)}
+.flink.strong{font-weight:600;color:var(--white)}
+.flink:hover{color:var(--white);border-color:var(--white)}
+.f-divider{height:1px;background:var(--navy80)}
+.f-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.f-bottom .info{display:flex;flex-direction:column;gap:8px;font-size:13px;line-height:1.55}
+.legal{display:flex;gap:16px;flex-wrap:wrap}
+
+/* ───────── 축소 반응형 ───────── */
+@media (max-width:1280px){
+  .gnb{padding:0 20px 0 28px}
+  .nav-item{padding:0 14px}
+  .mega{padding:40px 40px 48px;grid-template-columns:1fr 1.6fr 1.2fr}
+  .interview{grid-template-columns:1fr 1.3fr}
+}
+@media (max-width:1100px){
+  .gnb-wrap{left:max(16px,env(safe-area-inset-left,0px));right:max(16px,env(safe-area-inset-right,0px));top:calc(16px + env(safe-area-inset-top,0px))}
+  .gnb{height:auto;flex-wrap:wrap;padding:14px 20px 8px;row-gap:8px}
+  .nav{order:3;width:100%;overflow-x:auto;scrollbar-width:none;margin-inline:-8px;padding-bottom:4px}
+  .nav::-webkit-scrollbar{display:none}
+  .mega{top:calc(100% + 8px);grid-template-columns:1fr 1fr;padding:32px}
+  .mega .m-title{grid-column:1/-1}
+  .top-space{height:148px}
+  .sitemap{grid-template-columns:repeat(4,1fr);row-gap:40px}
+}
+@media (max-width:1024px){
+  main{gap:96px}
+  .hero-grid{grid-template-columns:1fr}
+  .side{display:grid;grid-template-columns:1fr 1fr}
+  .main-visual{height:560px}
+  .section-head{flex-direction:column;align-items:flex-start}
+  .section-head .right.end{align-items:flex-start}
+  .stats,.pt-cards{grid-template-columns:repeat(2,1fr)}
+  .tech-cards{flex-wrap:wrap}
+  .tech-card{flex:1 1 calc(50% - 12px)}
+  .tech-card.on{flex-grow:1}
+  .tech-card{height:360px}
+  .progress i{width:50%}
+  .values{grid-template-columns:repeat(3,1fr);row-gap:32px}
+  .ourway{height:auto;padding-block:120px}
+  .interview{grid-template-columns:1fr;gap:48px}
+  .deck{max-width:690px;height:auto;aspect-ratio:690/600}
+  .mk-row{grid-template-columns:200px minmax(0,1fr) auto 15px}
+  .logos{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:720px){
+  .t-headline{font-size:32px}
+  .mega{grid-template-columns:1fr;max-height:calc(100vh - 160px);overflow:auto}
+  .mega .m-links{grid-template-columns:1fr}
+  .side{grid-template-columns:1fr}
+  .main-visual{height:520px}
+  .caption-band{padding:24px 24px 24px}
+  .slide .caption-band{padding:24px 24px 64px}
+  .caption-band h2{font-size:28px}
+  .notice{gap:12px;padding:0 16px}
+  .notice .date,.notice .ctl{display:none}
+  .stats,.pt-cards{grid-template-columns:1fr}
+  .mk-row{grid-template-columns:minmax(0,1fr) 15px;row-gap:8px}
+  .mk-row .k{grid-column:1/-1}
+  .mk-row .l{display:none}
+  .values{grid-template-columns:repeat(2,1fr)}
+  .tech-card{height:260px}
+  .tech-card .lb .t-title{font-size:18px}
+  .logos{grid-template-columns:repeat(2,1fr)}
+  .sitemap{grid-template-columns:repeat(2,1fr)}
+  .careers{height:auto;padding-block:96px}
+  .util .lang{display:none}
+  .gnb{padding:12px 12px 6px 16px}
+  .logo,.logo img{width:110px}
+  .util{gap:4px}
+  .util-link{padding:0 8px}
+  .util .btn-menu{height:36px;padding:0 12px;font-size:13px}
+  .top-space{height:136px}
+}
+</style>
+
+<div class="mega-dim" id="megaDim"></div>
+
+<header class="gnb-wrap" id="gnbWrap">
+  <div class="gnb">
+    <a class="logo" href="#home" aria-label="비씨월드제약 홈">
+      <img src="assets/logo.png" alt="비씨월드제약" data-fallback="logo">
+      <span class="wordmark">비씨월드제약</span>
+    </a>
+    <nav class="nav" aria-label="주 메뉴">
+      <button class="nav-item" data-menu="people" aria-expanded="false" aria-controls="mega">사람과 문화</button>
+      <button class="nav-item" data-menu="about" aria-expanded="false" aria-controls="mega">회사소개</button>
+      <button class="nav-item" data-menu="product" aria-expanded="false" aria-controls="mega">제품정보</button>
+      <button class="nav-item" data-menu="partner" aria-expanded="false" aria-controls="mega">파트너십</button>
+      <button class="nav-item" data-menu="ir" aria-expanded="false" aria-controls="mega">투자정보</button>
+      <button class="nav-item" data-menu="esg" aria-expanded="false" aria-controls="mega">지속가능경영</button>
+    </nav>
+    <div class="util">
+      <div class="lang"><a href="#" aria-disabled="true" title="영문 사이트는 이번 범위 밖">ENG</a><a href="#home" aria-current="page">KOR</a></div>
+      <button class="util-link" data-menu="contact" aria-expanded="false" aria-controls="mega">고객문의</button>
+      <a class="btn btn-primary btn-menu" href="https://bcwp.recruiter.co.kr" target="_blank" rel="noopener">채용 바로가기 <span>↗</span></a>
+    </div>
+  </div>
+  <div class="mega" id="mega" role="region" aria-label="하위 메뉴"></div>
+</header>
+
+<div id="pageHome" class="page">
+<div id="top" class="top-space" aria-hidden="true"></div>
+
+<main>
+  <!-- HERO -->
+  <section class="wrap hero" aria-label="주요 소식">
+    <div class="hero-grid">
+      <div class="main-visual" id="mainVisual" aria-roledescription="carousel" aria-label="메인 비주얼"></div>
+      <div class="side">
+        <a class="side-card" href="#about-news">
+          <div class="media"><img src="assets/side-news.jpg" alt=""></div>
+          <div class="cap">
+            <div style="display:flex;flex-direction:column;gap:9px">
+              <p class="t-label c-line">사내소식</p>
+              <p class="t-sub c-white">멘토·멘티 프로그램으로<br>선배와 함께 첫해를 보내요</p>
+            </div>
+            <span class="ar">↗</span>
+          </div>
+        </a>
+        <a class="careers-card" href="https://bcwp.recruiter.co.kr" target="_blank" rel="noopener">
+          <div class="media"><img src="assets/side-careers.jpg" alt=""></div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div class="row">
+              <div style="display:flex;flex-direction:column;gap:5px">
+                <p class="eyebrow" style="color:var(--line)">CAREERS</p>
+                <p class="t-sub">지금 채용 중</p>
+              </div>
+              <div class="big" title="채용 사이트 접수중 공고 수 · 2026.10.20 기준"><span class="t-headline">1</span><span class="t-sub">개</span></div>
+            </div>
+            <p class="t-body c-line">마음에 드는 자리가<br>있다면 지금 지원해요</p>
+          </div>
+          <span class="go"><span class="d">진행 중인 공고 ↗</span><span class="h" aria-hidden="true">바로 지원하기 <span>↗</span></span></span>
+        </a>
+      </div>
+    </div>
+    <a class="notice" href="#about-news">
+      <span class="t-label-strong">알립니다</span>
+      <span class="bar"></span>
+      <span class="txt t-body">구급의약품 젝스트 관련 안내 드립니다.</span>
+      <span class="date">2026.03.20</span>
+      <span class="ctl" aria-hidden="true">‹  ›  +</span>
+    </a>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="wrap" aria-labelledby="h-about">
+    <div class="section-head">
+      <div class="left">
+        <p class="eyebrow">About BC World Pharm</p>
+        <h2 class="t-headline" id="h-about">환자의 더 나은 미래를 위해<br>진심을 다합니다</h2>
+      </div>
+      <div class="right">
+        <p class="t-body c-navy80">약이 몸 안에서 어떻게 녹고, 얼마나 오래 머무는지를 연구하는 DDS(약물전달시스템) 기술로 먹기 쉽고 오래가는 약을 만듭니다.</p>
+        <a class="tlink" href="#about-ceo">회사소개 자세히 <span class="ar">→</span></a>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><p class="t-label c-navy80">혁신형 제약기업</p><div class="g"><p class="v"><span class="t-headline">5</span><span class="t-sub">회 연속</span></p><p class="t-label c-navy80">보건복지부 인증 · 2024 재인증</p></div></div>
+      <div class="stat"><p class="t-label c-navy80">매출 대비 R&amp;D 투자</p><div class="g"><p class="v"><span class="t-headline">약 10</span><span class="t-sub">%</span></p><p class="t-label c-navy80">최근 3년 평균</p></div></div>
+      <div class="stat"><p class="t-label c-navy80">함께하는 위탁생산 파트너</p><div class="g"><p class="v"><span class="t-headline">93</span><span class="t-sub">개사</span></p><p class="t-label c-navy80">318개 품목 · 2025.03 기준</p></div></div>
+      <div class="stat"><p class="t-label c-navy80">전문의약품</p><div class="g"><p class="v"><span class="t-headline">95</span><span class="t-sub">개</span></p><p class="t-label c-navy80">제품정보 등록 기준</p></div></div>
+    </div>
+  </section>
+
+  <!-- OUR WAY -->
+  <section class="ourway" aria-labelledby="h-ourway">
+    <div class="media"><img src="assets/ourway.jpg" alt=""></div>
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow" id="h-ourway">Our Way</p>
+        <p class="t-body">다섯 가지 약속으로<br>함께 일합니다</p>
+      </div>
+      <div class="values">
+        <div class="value"><p class="t-label c-line">01</p><p class="t-title">인재경영</p></div>
+        <div class="value"><p class="t-label c-line">02</p><p class="t-title">도전</p></div>
+        <div class="value"><p class="t-label c-line">03</p><p class="t-title">협력</p></div>
+        <div class="value"><p class="t-label c-line">04</p><p class="t-title">책임</p></div>
+        <div class="value"><p class="t-label c-line">05</p><p class="t-title">정도</p></div>
+      </div>
+      <a class="btn btn-m btn-on-dark" href="#people-work">우리가 일하는 방식 <span class="ar">→</span></a>
+    </div>
+  </section>
+
+  <!-- INTERVIEW -->
+  <section class="wrap" aria-labelledby="h-iv">
+    <div class="interview">
+      <div class="iv-text">
+        <div class="head">
+          <p class="eyebrow">Interview</p>
+          <h2 class="t-headline" id="h-iv">우리가 말하는 비씨월드</h2>
+        </div>
+        <div class="iv-quote" id="ivQuote" aria-live="polite"></div>
+        <div class="iv-nav">
+          <span id="ivCount">01  /  03</span>
+          <div class="arrows">
+            <button id="ivPrev" aria-label="이전 인터뷰">‹</button>
+            <button id="ivNext" aria-label="다음 인터뷰">›</button>
+          </div>
+        </div>
+        <a class="tlink" href="#people-stories-all">인터뷰 전체 보기 <span class="ar">→</span></a>
+      </div>
+      <div class="deck" id="deck"></div>
+    </div>
+  </section>
+
+  <!-- TECHNOLOGY -->
+  <section class="wrap" aria-labelledby="h-tech">
+    <div class="section-head">
+      <div class="left">
+        <p class="eyebrow">Technology</p>
+        <h2 class="t-headline" id="h-tech">약을 전달하는 방법을<br>새롭게 설계합니다</h2>
+      </div>
+      <div class="right end"><a class="tlink" href="#partner-dds">DDS 기술 자세히 <span class="ar">→</span></a></div>
+    </div>
+    <div class="tech-cards" id="techCards" aria-label="DDS 기술">
+      <button class="tech-card" type="button" aria-expanded="false"><div class="media light"><img src="assets/tech-01.jpg" alt=""></div><div class="lb"><p class="t-label c-navy80">01</p><p class="t-title">개량신약</p></div><div class="hv" aria-hidden="true"><p class="t-label c-line">01 · 국책과제</p><p class="t-title c-white">개량신약</p><p class="t-body c-line">기존 약의 복용 편의를 개선</p><p class="t-body c-white d">이미 효과가 확인된 약을 서방형·복합제로 바꿔 먹는 횟수와 알 수를 줄입니다. 서방성 복합항생제, 고지혈증·당뇨병 서방성 복합제 개발이 국책과제로 선정됐습니다.</p></div></button>
+      <button class="tech-card" type="button" aria-expanded="false"><div class="media light"><img src="assets/tech-02.jpg" alt=""></div><div class="lb"><p class="t-label c-navy80">02</p><p class="t-title">장기지속형 주사제</p></div><div class="hv" aria-hidden="true"><p class="t-label c-line">02 · 기술수출</p><p class="t-title c-white">장기지속형 주사제</p><p class="t-body c-line">한 번 주사로 오래 유지</p><p class="t-body c-white d">약을 미세한 입자(마이크로스피어)에 담아, 한 번 주사하면 오랜 기간 조금씩 녹아 나오도록 설계합니다. 유화제 없이 입자를 만드는 SEP 미소구체 기술을 2015년 미국 Akorn에 라이선스 아웃했습니다.</p></div></button>
+      <button class="tech-card" type="button" aria-expanded="false"><div class="media light"><img src="assets/tech-03.jpg" alt=""></div><div class="lb"><p class="t-label c-navy80">03</p><p class="t-title">구강붕해정</p></div><div class="hv" aria-hidden="true"><p class="t-label c-line">03 · 수출 주력</p><p class="t-title c-white">구강붕해정</p><p class="t-body c-line">물 없이 입에서 녹는 정제</p><p class="t-body c-white d">구강붕해정을 개발하며 쌓아온 제제 기술과 맛 차폐 기술로 복용할 때의 이물감과 쓴맛을 줄였습니다. 수바로오디정은 국내 최초 로수바스타틴 구강붕해정, 텔바로오디정은 국내 최초 ARB계열 구강붕해정입니다.</p></div></button>
+      <button class="tech-card" type="button" aria-expanded="false"><div class="media light"><img src="assets/tech-04.jpg" alt=""></div><div class="lb"><p class="t-label c-navy80">04</p><p class="t-title">제네릭</p></div><div class="hv" aria-hidden="true"><p class="t-label c-line">04 · 퍼스트 제네릭</p><p class="t-title c-white">제네릭</p><p class="t-body c-line">특허가 끝나면 가장 먼저 내놓는 약</p><p class="t-body c-white d">오리지널 의약품과 같은 성분의 약을 특허 만료 시점에 맞춰 개발합니다. 2022년 퍼스트 제네릭 '테람핀에스정'을 허가받았고, '나르코설하정'·'코싹엘정'은 우선판매품목허가를 받았습니다.</p></div></button>
+    </div>
+    <div class="progress" aria-hidden="true"><i id="techBar"></i></div>
+  </section>
+
+  <!-- WHAT WE MAKE -->
+  <section class="wrap" aria-labelledby="h-make">
+    <div class="section-head">
+      <div class="left">
+        <p class="eyebrow">What We Make</p>
+        <h2 class="t-headline" id="h-make">생활 속에서 만나는<br>우리의 약</h2>
+      </div>
+      <div class="right end"><a class="tlink" href="#product-find">제품 전체 목록 보기 <span class="ar">→</span></a></div>
+    </div>
+    <div class="mk-list">
+      <a class="mk-row" href="#product-find-bp"><p class="k">01 · 치료 영역</p><div class="tt"><p class="n">고혈압 치료제</p><p class="t-body">치료 영역을 기준으로 관련 의약품을 살펴보세요.</p></div><span class="l">관련 제품 보기</span><span class="ar" aria-hidden="true">→</span></a>
+      <a class="mk-row" href="#partner-dds-1"><p class="k">02 · 약물전달 기술</p><div class="tt"><p class="n">장기지속형 주사제</p><p class="t-body">약물의 방출을 조절하는 제형 기술을 알아보세요.</p></div><span class="l">기술 알아보기</span><span class="ar" aria-hidden="true">→</span></a>
+      <a class="mk-row" href="#partner-dds-2"><p class="k">03 · 복용 형태</p><div class="tt"><p class="n">구강붕해정</p><p class="t-body">입안에서 붕해되는 정제의 특징과 기술을 소개합니다.</p></div><span class="l">기술 알아보기</span><span class="ar" aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <!-- PARTNERSHIP -->
+  <section class="wrap" aria-labelledby="h-pt">
+    <div class="section-head">
+      <div class="left">
+        <p class="eyebrow">Partnership</p>
+        <h2 class="t-headline" id="h-pt">함께 만들 수 있는 일을<br>실현하고 있습니다.</h2>
+      </div>
+      <div class="right">
+        <p class="t-body c-navy80">위탁생산부터 공동개발까지, 파트너와 함께합니다.<br>93개 기업과 협력하며 새로운 가치를 만들어가고 있습니다.</p>
+        <a class="tlink" href="#partner-rnd">파트너십 자세히 <span class="ar">→</span></a>
+      </div>
+    </div>
+    <div class="pt-group">
+      <div class="pt-cards">
+        <a class="pt-card" href="#partner-cdmo"><p class="t-label c-navy80">01</p><div class="g"><p class="t-sub">CMO/CDMO</p><p class="t-body c-navy80">위탁생산·위탁개발,<br>93개 회사와 318개 품목을 진행 중</p></div></a>
+        <a class="pt-card" href="#partner-lai"><p class="t-label c-navy80">02</p><div class="g"><p class="t-sub">장기지속형 주사제</p><p class="t-body c-navy80">한 번 주사로 오래가는<br>마이크로스피어 기술</p></div></a>
+        <a class="pt-card" href="#partner-licensing"><p class="t-label c-navy80">03</p><div class="g"><p class="t-sub">공동개발 · 라이선싱</p><p class="t-body c-navy80">기술이전과 국내 독점 판매 협력</p></div></a>
+        <a class="pt-card" href="#partner-global"><p class="t-label c-navy80">04</p><div class="g"><p class="t-sub">글로벌 사업 · 수출</p><p class="t-body c-navy80">2020년 수출 500만불탑 수상</p></div></a>
+      </div>
+      <div class="logos" aria-label="협력사 로고">
+        <div class="logo-tile"><img src="assets/partner-1.png" alt="협력사 로고 1"><span class="ph">로고</span></div>
+        <div class="logo-tile"><img src="assets/partner-2.png" alt="협력사 로고 2"><span class="ph">로고</span></div>
+        <div class="logo-tile"><img src="assets/partner-3.png" alt="협력사 로고 3"><span class="ph">로고</span></div>
+        <div class="logo-tile"><img src="assets/partner-4.png" alt="협력사 로고 4"><span class="ph">로고</span></div>
+        <div class="logo-tile"><img src="assets/partner-5.png" alt="협력사 로고 5"><span class="ph">로고</span></div>
+        <div class="logo-tile"><img src="assets/partner-6.png" alt="협력사 로고 6"><span class="ph">로고</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAREERS -->
+  <section class="careers" aria-labelledby="h-careers">
+    <div class="media"><img src="assets/careers.jpg" alt=""></div>
+    <div class="wrap">
+      <p class="t-label-strong c-line" style="white-space:pre">CAREERS  ·  지금 N개 포지션 채용 중</p>
+      <h2 class="t-body-strong" id="h-careers">다음 이야기의 주인공을<br>찾고 있습니다</h2>
+      <p class="t-body">연구개발 · 생산·품질 · 영업·마케팅 · 경영지원</p>
+      <div class="btns">
+        <a class="btn btn-l btn-on-dark-solid" href="https://bcwp.recruiter.co.kr" target="_blank" rel="noopener">채용공고 보기 <span class="ar">→</span></a>
+        <a class="btn btn-l btn-on-dark" href="#people-talent">인재상 보기 <span class="ar">→</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+</div>
+<div id="pageHost" class="page" hidden></div>
+
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div class="f-logo"><span class="logo"><img src="assets/logo.png" alt="비씨월드제약" data-fallback="logo"><span class="wordmark">비씨월드제약</span></span></div>
+      <div class="r">
+        <button class="family" type="button">Family Site <span>⌄</span></button>
+        <a class="flink" href="#">비씨월드헬스케어 ↗</a>
+      </div>
+    </div>
+    <nav class="sitemap" id="sitemap" aria-label="사이트맵"></nav>
+    <div class="f-divider"></div>
+    <div class="f-bottom">
+      <div class="info">
+        <div class="legal">
+          <a class="flink strong" href="#">개인정보처리방침</a>
+          <a class="flink" href="#">이용약관</a>
+          <a class="flink" href="#">이메일무단수집거부</a>
+          <a class="flink strong" href="#ir-shareholders">내부정보관리규정</a>
+        </div>
+        <p>(주)비씨월드제약 · 대표이사 홍성한 · 사업자등록번호 139-81-11269</p>
+        <p>경기도 성남시 수정구 금토로40번길 22 (우)13453 · T. 031-5178-3300 · F. 02-574-5073</p>
+      </div>
+      <p style="font-size:13px">All Rights Reserved ⓒ bcwp.N Corp.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* ── 메뉴 데이터 (Figma 메가메뉴 7종 · 푸터 사이트맵 기준) ── */
+  const RECRUIT='https://bcwp.recruiter.co.kr';
+  const MENUS={
+    people:{name:'사람과 문화',title:'어떤 사람들이 어떤 방식으로<br>일하는지 보여드려요',links:['일하는 방식','인재상','직무소개','구성원 이야기','복리후생','조직문화 · 근무환경','채용 절차'],hl:{t:'지금 채용 중',d:'진행 중인 공고와 인재풀 등록은 채용 사이트에서',b:'채용 바로가기',ext:RECRUIT,primary:true}},
+    about:{name:'회사소개',title:'DDS 기술을 선도하는<br>존경받는 글로벌 헬스케어 그룹',links:['CEO 인사말','미션','핵심가치','비전','걸어온 길','비씨월드헬스케어','비씨월드 뉴스','CI 소개'],hl:{t:'최신 소식',d:"비씨월드제약, 이상지질혈증 복합제 '스타피노정' 출시 · 2026.09.22",b:'뉴스룸',to:'#about-news'}},
+    product:{name:'제품정보',title:'제품명을 몰라도<br>찾을 수 있어요',links:['제품 찾기','의약품 안전정보','제품 변경소식'],hl:{t:'제품 바로 찾기',d:'제품명 또는 성분명으로 검색',b:'검색',to:'#product-find'}},
+    partner:{name:'파트너십',title:'연구개발부터 생산까지,<br>함께할 방법을 모았어요',links:['연구개발','DDS 기술 · 플랫폼','파이프라인','생산시설','CMO/CDMO','장기지속형 주사제','공동개발 · 라이선싱','글로벌 사업 · 수출','문의'],hl:{t:'함께 시작하기',d:'어떤 방식이 맞을지 모르시겠다면',b:'파트너십 문의',to:'#partner-inquiry'}},
+    ir:{name:'투자정보',title:'숫자와 공시를<br>기준일과 함께 알려드려요',links:['재무정보','공시정보','주가정보','IR 자료','주주 정보','IR 문의'],hl:{t:'공시 · 재무',d:'원문은 전자공시시스템에서도 확인하실 수 있어요',b:'전자공시시스템 (DART)',ext:'https://dart.fss.or.kr',primary:true}},
+    esg:{name:'지속가능경영',title:'좋은 약과 바른 회사,<br>두 가지 약속을 지킵니다',links:['두 가지 약속','품질경영','윤리경영','공정거래 자율준수','제보 · 신고자 보호','ESG'],hl:{t:'제보 채널',d:'전화 031-5178-3341 / 3380 · 익명 제보 가능',b:'제보하기',to:'#esg-report'}},
+    contact:{name:'고객문의',title:'문의 목적에 따라<br>접수 창구가 나뉘어요',links:['문의 유형','연락처','오시는 길'],hl:{t:'대표 연락처',d:'대표전화 031-5178-3300 · 팩스 02-574-5073',b:'이상사례 신고',to:'#contact-ae'}}
+  };
+  const routeOf=(l,m)=>BC.routeOf(l,m);
+  const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+  /* ── 메가메뉴 ── */
+  const mega=document.getElementById('mega'),dim=document.getElementById('megaDim'),wrap=document.getElementById('gnbWrap');
+  const triggers=[...document.querySelectorAll('[data-menu]')];
+  let openKey=null,closeT=null;
+  function render(k){
+    const m=MENUS[k],h=m.hl;
+    const btn=h.ext
+      ?`<a class="btn btn-menu ${h.primary?'btn-primary':'btn-outline'}" href="${h.ext}" target="_blank" rel="noopener">${esc(h.b)} <span>↗</span></a>`
+      :`<a class="btn btn-menu btn-outline" href="${h.to||'#'}">${esc(h.b)} <span class="ar">→</span></a>`;
+    mega.innerHTML=`<div class="m-title"><p>${m.name}</p><p class="t-title">${m.title}</p></div>
+      <div class="m-links">${m.links.map(l=>`<a href="${routeOf(l,m.name)}"><span>${esc(l)}</span><span>→</span></a>`).join('')}</div>
+      <div class="m-hl"><p class="t-sub">${esc(h.t)}</p><p class="t-body">${esc(h.d)}</p>${btn}</div>`;
+  }
+  function open(k){
+    clearTimeout(closeT);
+    if(openKey!==k){render(k);openKey=k}
+    mega.classList.add('on');dim.classList.add('on');
+    triggers.forEach(t=>t.setAttribute('aria-expanded',t.dataset.menu===k));
+  }
+  function close(){
+    mega.classList.remove('on');dim.classList.remove('on');openKey=null;
+    triggers.forEach(t=>t.setAttribute('aria-expanded','false'));
+  }
+  const canHover=matchMedia('(hover:hover) and (min-width:1101px)');
+  triggers.forEach(t=>{
+    t.addEventListener('mouseenter',()=>{if(canHover.matches)open(t.dataset.menu)});
+    /* 큰 메뉴를 누르면 그 메뉴의 첫 화면으로 이동 (호버하면 메가메뉴) */
+    t.addEventListener('click',()=>{const first=BC.MENUS[t.dataset.menu]&&BC.MENUS[t.dataset.menu].items[0][0];
+      if(first&&canHover.matches){close(); if(location.hash!=='#'+first)location.hash=first; else window.scrollTo({top:0,behavior:'smooth'}); return;}
+      openKey===t.dataset.menu&&mega.classList.contains('on')?close():open(t.dataset.menu)});
+  });
+  wrap.addEventListener('mouseleave',()=>{if(canHover.matches)closeT=setTimeout(close,120)});
+  wrap.addEventListener('mouseenter',()=>clearTimeout(closeT));
+  dim.addEventListener('click',close);
+  mega.addEventListener('click',e=>{if(e.target.closest('a[href^="#"]'))close()});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&openKey){const k=openKey;close();triggers.find(t=>t.dataset.menu===k)?.focus()}});
+  mega.addEventListener('focusout',e=>{if(!wrap.contains(e.relatedTarget))close()});
+
+  /* ── 이미지가 없으면 자리 배경만 남김 ── */
+  document.querySelectorAll('img').forEach(img=>{
+    const fail=()=>{img.classList.add('gone');if(img.dataset.fallback==='logo')img.parentElement.classList.add('noimg')};
+    if(img.complete&&img.naturalWidth===0)fail();else img.addEventListener('error',fail);
+  });
+
+  /* ── 메인 비주얼 6장 (bcwp.co.kr 보도자료·연혁, 10.14 확인) ── */
+  const SLIDES=[
+    ['자랑하고 싶은 소식','2024 · 보건복지부','혁신형 제약기업,<br>다섯 번째 인증을 받았습니다.'],
+    ['새 제품','2026.09 · 이상지질혈증',"이상지질혈증 복합제<br>'스타피노정'을 출시했습니다."],
+    ['연구개발','2026.09 · AI·양자기술','AI와 양자기술로 항생제 내성<br>신약 후보를 찾고 있습니다.'],
+    ['새 제품','2026.08 · 구강붕해정',"물 없이 먹는 고혈압약<br>'암바로오디정'을 출시했습니다."],
+    ['창립 20주년','2026.06 · 기념식','창립 20주년,<br>질적 성장의 시대를 향해 갑니다.'],
+    ['함께하는 소식','2026.09 · 사회공헌','임직원 칭찬 캠페인으로<br>여주 취약계층을 지원했습니다.']
+  ];
+  const mv=document.getElementById('mainVisual');
+  mv.innerHTML=SLIDES.map((s,i)=>`<div class="slide${i?'':' on'}" role="group" aria-roledescription="slide" aria-label="${i+1} / 6"${i?' aria-hidden="true"':''}>
+      <div class="media"><img src="assets/hero-0${i+1}.jpg" alt=""></div>
+      <div class="caption-band"><div class="tags"><span class="tag">${s[0]}</span><span class="tag">${s[1]}</span></div>
+      <h2 class="t-headline">${s[2]}</h2></div></div>`).join('')+
+    `<div class="caption-band" style="background:none;min-height:0;padding-top:0;padding-bottom:28px;pointer-events:none"><div class="slide-control" style="pointer-events:auto">
+      <div class="dots">${SLIDES.map((_,i)=>`<button aria-label="${i+1}번 슬라이드"${i?'':' class="on"'}></button>`).join('')}</div>
+      <div class="sc-right"><span id="mvCount">01 / 06</span><div class="sc-btns">
+        <button id="mvPrev" aria-label="이전 슬라이드">‹</button>
+        <button id="mvToggle" aria-label="자동 넘김 정지"><span class="pause-ic"><i></i><i></i></span></button>
+        <button id="mvNext" aria-label="다음 슬라이드">›</button></div></div></div></div>`;
+  /* 사진이 없으면 1장 사진을 씀 */
+  mv.querySelectorAll('.slide img').forEach(img=>img.addEventListener('error',()=>{if(!img.src.endsWith('hero-01.jpg'))img.src='assets/hero-01.jpg';else img.classList.add('gone')}));
+  const slides=[...mv.querySelectorAll('.slide')],dots=[...mv.querySelectorAll('.dots button')];
+  let cur=0,playing=!matchMedia('(prefers-reduced-motion:reduce)').matches,timer;
+  function go(n){
+    cur=(n+slides.length)%slides.length;
+    slides.forEach((s,i)=>{s.classList.toggle('on',i===cur);s.toggleAttribute('aria-hidden',i!==cur)});
+    dots.forEach((d,i)=>d.classList.toggle('on',i===cur));
+    document.getElementById('mvCount').textContent=String(cur+1).padStart(2,'0')+' / 06';
+    restart();
+  }
+  function restart(){clearTimeout(timer);if(playing)timer=setTimeout(()=>go(cur+1),5000)}
+  const tg=document.getElementById('mvToggle');
+  function setPlay(p){playing=p;tg.innerHTML=p?'<span class="pause-ic"><i></i><i></i></span>':'<span class="play-ic"></span>';tg.setAttribute('aria-label',p?'자동 넘김 정지':'자동 넘김 재생');restart()}
+  tg.addEventListener('click',()=>setPlay(!playing));
+  document.getElementById('mvPrev').addEventListener('click',()=>go(cur-1));
+  document.getElementById('mvNext').addEventListener('click',()=>go(cur+1));
+  dots.forEach((d,i)=>d.addEventListener('click',()=>go(i)));
+  mv.addEventListener('mouseenter',()=>clearTimeout(timer));
+  mv.addEventListener('mouseleave',restart);
+  setPlay(playing);
+
+  /* ── 인터뷰 카드 덱 ── */
+  const IV=[ /* 문구: 채용 사이트 인터뷰 원문 발췌 (bcwp.recruiter.co.kr) */
+    {q:'“오랜 시간 함께하는 만큼 서로 신뢰하는<br>분위기 속에서 일을 하고 있습니다.”',dept:'생산 · 품질',name:'이하나',meta:'이하나  ·  생산관리팀',img:'iv-01.jpg',iv:'iv-01'},
+    {q:'“비씨월드는 소통을 통한 협업으로<br>혁신과 지속 가능한 성장을 추구합니다.”',dept:'연구개발',name:'김수빈',meta:'김수빈  ·  신제품연구팀',img:'iv-04.jpg',iv:'iv-04'},
+    {q:'“현재의 문제점을 인식하고 이를 개선하며<br>변화하려는 강한 의지를 가진 회사입니다.”',dept:'경영지원',name:'장우석',meta:'장우석  ·  IT혁신팀',img:'iv-03.jpg',iv:'iv-02'}
+  ];
+  const deck=document.getElementById('deck'),quote=document.getElementById('ivQuote');
+  deck.innerHTML=IV.map((p,i)=>`<div class="card" data-i="${i}" data-pos="${i}" aria-hidden="${i?'true':'false'}">
+      <div class="media"><img src="assets/${p.img}" alt=""></div><div class="dimc"></div>
+      <div class="namebox"><p class="t-label c-line">${p.dept}</p><p class="t-title c-white">${p.name}</p></div></div>`).join('');
+  deck.querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>img.classList.add('gone')));
+  let iv=0;
+  function showIv(n){
+    iv=(n+IV.length)%IV.length;
+    deck.querySelectorAll('.card').forEach(c=>{const pos=(+c.dataset.i-iv+IV.length)%IV.length;c.dataset.pos=pos;c.setAttribute('aria-hidden',pos?'true':'false')});
+    const p=IV[iv];
+    quote.classList.remove('fade'); void quote.offsetWidth; quote.classList.add('fade');
+    quote.innerHTML=`<p class="t-title">${p.q}</p>`+
+      `<div class="iv-meta"><span class="tag">${p.dept}</span><span class="t-label c-navy80" style="white-space:pre">${p.meta}</span></div>`;
+    document.getElementById('ivCount').textContent=String(iv+1).padStart(2,'0')+'  /  '+String(IV.length).padStart(2,'0');
+  }
+  /* 4초마다 다음 사람으로 자동 넘김 · 마우스를 올리거나 포커스가 있으면 멈춤 */
+  let ivT=null, ivHold=false;
+  const ivAuto=!matchMedia('(prefers-reduced-motion:reduce)').matches;
+  const ivRestart=()=>{clearTimeout(ivT); if(ivAuto&&!ivHold) ivT=setTimeout(()=>showIv(iv+1),4000)};
+  const ivSec=document.querySelector('.interview');
+  ivSec.addEventListener('mouseenter',()=>{ivHold=true;clearTimeout(ivT)});
+  ivSec.addEventListener('mouseleave',()=>{ivHold=false;ivRestart()});
+  ivSec.addEventListener('focusin',()=>{ivHold=true;clearTimeout(ivT)});
+  ivSec.addEventListener('focusout',()=>{ivHold=false;ivRestart()});
+  const _showIv=showIv; showIv=n=>{_showIv(n); ivRestart()};
+  document.getElementById('ivPrev').addEventListener('click',()=>showIv(iv-1));
+  document.getElementById('ivNext').addEventListener('click',()=>showIv(iv+1));
+  deck.addEventListener('click',e=>{const c=e.target.closest('.card');if(!c)return;if(c.dataset.pos!=='0')showIv(+c.dataset.i);else location.hash=IV[+c.dataset.i].iv});
+  showIv(0);
+
+  /* ── 기술 카드: 선택 = 진행 막대 이동 ── */
+  const tcs=[...document.querySelectorAll('.tech-card')],bar=document.getElementById('techBar'),tWrap=document.getElementById('techCards');
+  let tcCur=-1;
+  function setTech(i){
+    tcCur=i; tcs.forEach((c,j)=>{c.classList.toggle('on',i===j);c.setAttribute('aria-expanded',i===j);c.querySelector('.hv').setAttribute('aria-hidden',i!==j)});
+    bar.style.opacity=i<0?0:1; if(i<0)return;
+    const r=tWrap.getBoundingClientRect(), c=tcs[i].getBoundingClientRect();
+    /* 카드가 넓어지는 애니메이션이 끝난 뒤 위치를 다시 맞춤 */
+    const place=()=>{const c2=tcs[i].getBoundingClientRect(); bar.style.width=c2.width+'px'; bar.style.transform=`translateX(${c2.left-r.left}px)`};
+    place(); setTimeout(place,520);
+  }
+  /* 카드 폭이 바뀌는 동안 경계가 움직여 깜빡이지 않도록, 마우스가 머문 카드로 한 번만 바꿈 */
+  let tcT=null; const tcHover=()=>{clearTimeout(tcT); tcT=setTimeout(()=>{const h=tcs.findIndex(c=>c.matches(':hover')); if(h>=0&&h!==tcCur)setTech(h)},140)};
+  tcs.forEach((c,i)=>{c.addEventListener('mouseenter',()=>{if(tcCur<0)setTech(i); else tcHover()});c.addEventListener('focus',()=>setTech(i));c.addEventListener('click',()=>setTech(tcCur===i&&!matchMedia('(hover:hover)').matches?-1:i))});
+  tWrap.addEventListener('mouseleave',()=>{clearTimeout(tcT);setTech(-1)});
+  tWrap.addEventListener('focusout',e=>{if(!tWrap.contains(e.relatedTarget))setTech(-1)});
+  addEventListener('resize',()=>{if(tcCur>=0)setTech(tcCur)});
+  setTech(-1);
+
+  /* ── 푸터 사이트맵 ── */
+  const FOOT=[
+    ['사람과 문화',['일하는 방식','인재상','직무소개','구성원 이야기','복리후생','조직문화·근무환경','채용 절차']],
+    ['회사소개',['CEO 인사말','미션','핵심가치','비전','걸어온 길','비씨월드헬스케어','비씨월드 뉴스','CI 소개']],
+    ['제품정보',['제품 찾기','의약품 안전정보','제품 변경소식']],
+    ['파트너십',['연구개발','DDS 기술·플랫폼','파이프라인','생산시설','CMO/CDMO','장기지속형 주사제','공동개발·라이선싱','글로벌 사업·수출','문의']],
+    ['투자정보',['재무정보','공시정보','주가정보','IR 자료','주주 정보','IR 문의']],
+    ['지속가능경영',['두 가지 약속','품질경영','윤리경영','공정거래 자율준수','제보·신고자 보호','ESG']],
+    ['고객문의',['문의 유형','연락처','오시는 길']],
+    ['채용 ↗',['진행 중인 공고 ↗','인재풀 등록 ↗'],RECRUIT]
+  ];
+  document.getElementById('sitemap').innerHTML=FOOT.map(([h,items,ext])=>{
+    const a=t=>ext?`<a class="flink${t===h?' head':''}" href="${ext}" target="_blank" rel="noopener">${t}</a>`:`<a class="flink${t===h?' head':''}" href="${t===h?routeOf(t):routeOf(t,h)}">${t}</a>`;
+    return `<div class="col">${a(h)}<ul>${items.map(i=>`<li>${a(i)}</li>`).join('')}</ul></div>`;
+  }).join('');
+
+  /* 빈 링크는 맨 위로 튀지 않게 */
+  document.addEventListener('click',e=>{const a=e.target.closest('a[href="#"]');if(a)e.preventDefault()});
+})();
+</script>
